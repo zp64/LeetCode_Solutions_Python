@@ -1,0 +1,19 @@
+#Using two pointer methodology
+class Solution(object):
+    def twoSum(self, a, target):
+        arr=[]
+        for ele,x in enumerate(a):
+            arr.append([x,ele])
+        b=sorted(arr, key=lambda x:x[0])
+        l=0
+        n=len(b)
+        r=n-1
+        for i,j in enumerate(b):
+            sm=b[l][0]+b[r][0]
+            if sm==target:
+                return ([b[l][1],b[r][1]])
+            elif sm>target:
+                r-=1
+            elif sm<target:
+                l+=1
+
