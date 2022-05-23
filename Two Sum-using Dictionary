@@ -1,0 +1,17 @@
+# Using Dictionary 
+class Solution(object):
+    def twoSum(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        dict={}
+        n=len(nums)
+        for i in range(0,n):
+            x=target-nums[i]
+            if x in dict:
+                return i,dict.get(x)
+            else:
+                dict[nums[i]]=i
+                
