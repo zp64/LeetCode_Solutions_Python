@@ -1,0 +1,25 @@
+class Solution(object):
+    def isAnagram(self, s, t):
+        """
+        :type s: str
+        :type t: str
+        :rtype: bool
+        """
+        n=len(s)
+        m=len(t)
+        dict={}
+        count=0
+        if n!=m:
+            return False
+        for i in range(m):
+            dict[t[i]]=dict.get(t[i],0)+1
+        for i in range(n):
+            if s[i] in dict and dict.get(s[i])!=0:
+                dict[s[i]]=dict.get(s[i])-1
+        for i in dict.values():
+            if i!=0:
+                return False
+            else:
+                continue
+        return True        
+                
