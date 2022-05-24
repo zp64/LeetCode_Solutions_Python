@@ -1,0 +1,19 @@
+class Solution(object):
+    def maxProduct(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        n=len(nums)
+        max_so_far=nums[0]
+        min_so_far=nums[0]
+        ans=nums[0]
+        for i in range(1,n):
+                    curr=nums[i]
+                    min_=min(curr,curr*min_so_far,curr*max_so_far)
+                    max_=max(curr,curr*min_so_far,curr*max_so_far)
+                    min_so_far=min_
+                    max_so_far=max_
+                    if max_so_far>ans:
+                        ans=max_so_far
+        return (ans) 
